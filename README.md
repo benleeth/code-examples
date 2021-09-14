@@ -5,6 +5,8 @@
 SELECT * FROM wp_gf_addon_feed WHERE meta->>"$.formID" = 'f5197b84-7f74-4545-b4a7-128e4fb382c1'
 ```
 
+---
+
 # CLI Examples
 Find all `.avi` files in folder and convert to `.mp4` using FFMPEG<br>
 *(New file labelled using input, starting at second character and stopping after two total characters plus **E** at beginning)*
