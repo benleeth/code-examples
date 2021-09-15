@@ -4,6 +4,11 @@
 ```sql
 SELECT * FROM wp_gf_addon_feed WHERE meta->>"$.formID" = 'f5197b84-7f74-4545-b4a7-128e4fb382c1'
 ```
+`meta` column contains JSON array, only retrieve `meta.formID` from JSON<br>
+*(Used for searching JSON data)*
+```sql
+SELECT meta->>"$.formID" FROM wp_gf_addon_feed
+```
 
 ---
 
