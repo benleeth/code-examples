@@ -18,3 +18,7 @@ Find all `.avi` files in folder and convert to `.mp4` using FFMPEG<br>
 ```console
 for i in *.avi; do ffmpeg -i "$i" "E${i:1:2}.mp4"; done
 ```
+Find all `.mp4` files in folder and get their duration in seconds using FFPROBE, add filename and duration to `CSV`
+```console
+for i in **/*.mp4; do eval $(ffprobe -v quiet -show_format -of flat=s=_ -show_entries stream=duration $i); echo $i,$streams_stream_0_duration >> ~/Downloads/videos.csv; done;
+```
