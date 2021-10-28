@@ -22,7 +22,11 @@ Find all `.mp4` files in folder and get their duration in seconds using FFPROBE,
 ```console
 for i in **/*.mp4; do eval $(ffprobe -v quiet -show_format -of flat=s=_ -show_entries stream=duration $i); echo $i,$streams_stream_0_duration >> ~/Downloads/videos.csv; done;
 ```
-Run [clean-html on all](https://www.npmjs.com/package/clean-html "HTML cleaner and beautifier") `.html` files within current directory and subdirectories
+Run [clean-html](https://www.npmjs.com/package/clean-html "HTML cleaner and beautifier") on all `.html` files within current directory and subdirectories
 ```console
 find . -type f -name "*.html" -exec clean-html "{}" --in-place \;
+```
+Move all `.jpeg` files within current directory and subdirectories to target directory
+```console
+find . -type f -name "*.jpeg" -exec mv "{}" /targetDir/ \;
 ```
