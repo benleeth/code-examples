@@ -26,7 +26,7 @@ Run [clean-html](https://www.npmjs.com/package/clean-html "HTML cleaner and beau
 ```console
 find . -type f -name "*.html" -exec clean-html "{}" --in-place \;
 ```
-Move all `.jpeg` files within current directory and subdirectories to target directory
+Move multiple file type within current directory and subdirectories to target directory
 ```console
-find . -type f -name "*.jpeg" -exec mv "{}" /targetDir/ \;
+find . -type f \( -name \*.jpeg -o -name \*.jpg -o -name \*.png -o -name \*.svg -o -name \*.gif \) -exec mv "{}" ~/targetDir \;
 ```
