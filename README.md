@@ -4,10 +4,15 @@
 ```sql
 SELECT * FROM wp_gf_addon_feed WHERE meta->>"$.formID" = 'f5197b84-7f74-4545-b4a7-128e4fb382c1'
 ```
-`meta` column contains JSON array, only retrieve `meta.formID` from JSON<br>
+`meta_value` column contains JSON array, only retrieve `meta_value.users` object/array from JSON<br>
 *(Used for searching JSON data)*
 ```sql
-SELECT meta->>"$.formID" FROM wp_gf_addon_feed
+SELECT JSON_QUERY(meta_value, '$.users') AS users FROM wp_postmeta WHERE meta_key = '_facility_meta'
+```
+`meta_value` column contains JSON array, only retrieve `meta_value.address` from JSON<br>
+*(Used for searching JSON data)*
+```sql
+SELECT JSON_VALUE(meta_value, '$.address') AS address FROM wp_postmeta WHERE meta_key = '_facility_meta'
 ```
 
 ---
