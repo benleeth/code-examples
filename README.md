@@ -30,3 +30,11 @@ Move multiple file type within current directory and subdirectories to target di
 ```console
 find . -type f \( -name \*.jpeg -o -name \*.jpg -o -name \*.png -o -name \*.svg -o -name \*.gif \) -exec mv "{}" ~/targetDir \;
 ```
+Find all `.png` within current directory and subdirectories and optimize with `optipng`
+```console
+for img in $( find . -type f -iname "*.png" ); do optipng $img -out ${img%.*}.png; done;
+```
+Find all `.jpg` within current directory and subdirectories and optimize with `jpegoptim` with 80% quality
+```console
+for img in $( find . -type f -iname "*.jpg" ); do jpegoptim -m 80 ${img%.*}.jpg; done;
+```
