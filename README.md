@@ -37,7 +37,7 @@ find . -type f \( -name \*.jpeg -o -name \*.jpg -o -name \*.png -o -name \*.svg 
 ```
 Find all `.png` within current directory and subdirectories and optimize with `optipng`
 ```console
-for img in $( find . -type f -iname "*.png" ); do optipng $img -out ${img%.*}.png; done;
+for img in $( find . -type f -iname "*.png" ); do optipng $img -o1 -out ${img%.*}.png; done;
 ```
 Find all `.jpg` within current directory and subdirectories and optimize with `jpegoptim` with 80% quality
 ```console
