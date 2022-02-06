@@ -1,8 +1,13 @@
 # MySQL Examples
-`meta` column contains JSON array, find were `meta.formID` matches<br>
+`meta_value` column contains JSON array, find were `meta_value.address` matches<br>
 *(Used for searching JSON data)*
 ```sql
-SELECT * FROM wp_gf_addon_feed WHERE meta->>"$.formID" = 'f5197b84-7f74-4545-b4a7-128e4fb382c1'
+SELECT post_id FROM wp_postmeta WHERE meta_key = '_facility_meta' AND JSON_VALUE(meta_value, '$.address') = '123 Main St';
+```
+`meta_value` column contains JSON array, find were `meta_value.users` contains<br>
+*(Used for searching JSON data)*
+```sql
+SELECT post_id FROM wp_postmeta WHERE meta_key = '_facility_meta' AND JSON_CONTAINS(meta_value, 2, '$.users');
 ```
 `meta_value` column contains JSON array, only retrieve `meta_value.users` object/array from JSON<br>
 *(Used for searching JSON data)*
